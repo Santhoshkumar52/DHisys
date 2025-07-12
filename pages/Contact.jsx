@@ -1,8 +1,46 @@
-import React from 'react'
+// import React from 'react'
 import clsx from 'clsx'
 import { useTheme } from '../Context/ThemeContext'
+import { useState } from 'react';
 
 const Contact = () => {
+    const [activeIndex, setActiveIndex] = useState(null);
+
+  const toggleIndex = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  }
+  const faqs = [
+  {
+    question: "What is AI Transformation?",
+    answer:
+      "AI Transformation is the strategic implementation of artificial intelligence technologies to enhance existing business systems and processes. Unlike complete digital overhauls, our approach focuses on integrating AI capabilities with your current infrastructure, allowing you to leverage your existing data assets while gaining the benefits of advanced intelligence systems."
+  },
+  {
+    question: "Do I need to replace my existing systems to implement AI?",
+    answer:
+      "AI Transformation is the strategic implementation of artificial intelligence technologies to enhance existing business systems and processes. Unlike complete digital overhauls, our approach focuses on integrating AI capabilities with your current infrastructure, allowing you to leverage your existing data assets while gaining the benefits of advanced intelligence systems."
+  },
+  {
+    question: "What types of businesses can benefit from AI Transformation?",
+    answer:
+      "AI Transformation is the strategic implementation of artificial intelligence technologies to enhance existing business systems and processes. Unlike complete digital overhauls, our approach focuses on integrating AI capabilities with your current infrastructure, allowing you to leverage your existing data assets while gaining the benefits of advanced intelligence systems."
+  },
+  {
+    question: "How long does an AI Transformation project typically take?",
+    answer:
+      "AI Transformation is the strategic implementation of artificial intelligence technologies to enhance existing business systems and processes. Unlike complete digital overhauls, our approach focuses on integrating AI capabilities with your current infrastructure, allowing you to leverage your existing data assets while gaining the benefits of advanced intelligence systems."
+  },
+  {
+    question: "How do you measure success in AI Transformation projects?",
+    answer:
+      "AI Transformation is the strategic implementation of artificial intelligence technologies to enhance existing business systems and processes. Unlike complete digital overhauls, our approach focuses on integrating AI capabilities with your current infrastructure, allowing you to leverage your existing data assets while gaining the benefits of advanced intelligence systems."
+  },
+  {
+    question: "What makes DHISys different from other AI consulting firms?",
+    answer:
+      "AI Transformation is the strategic implementation of artificial intelligence technologies to enhance existing business systems and processes. Unlike complete digital overhauls, our approach focuses on integrating AI capabilities with your current infrastructure, allowing you to leverage your existing data assets while gaining the benefits of advanced intelligence systems."
+  },
+];
   const theme=useTheme()
   return (
     <div>
@@ -12,7 +50,7 @@ const Contact = () => {
             })}>
               {/* Services - Contact Form Left */}
               <div className="lg:w-full mx-auto grid grid-cols-1 md:grid-cols-1 gap-2 ">
-                  <form action="" className='bg-white text-black py-12 px-6 rounded lg:absolute lg:w-[475px] -top-40 z-99 my-2'>
+                  <form action="" className='bg-white text-black py-12 px-6 rounded lg:absolute lg:w-[475px] -top-40 z-11 my-2'>
                     <div className="label-group">
                       <label htmlFor="name" className='font-semibold'>Your Name </label><span className='font-bold text-red-600'>*</span>
                       <input type="text" name="" id=""  className='border block w-full mt-3 mb-7 rounded border-neutral-400 outline-none p-1.5 '/>
@@ -56,6 +94,33 @@ const Contact = () => {
                 </div>
               </div>
             </div>
+            {/* Contact - FAQ Sections */}
+    <section className="bg-white px-4 py-10 md:py-20 transition-all duration-100 ease-in">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-2xl md:text-3xl font-bold text-center text-[#0A2240] mb-8">
+          Frequently Asked Questions
+        </h2>
+        <div className="space-y-4 max-h-[500px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100">
+          {faqs.map((item, index) => (
+            <div key={index} className="border-b">
+              <button
+                onClick={() => toggleIndex(index)}
+                className="flex justify-between w-full py-4 font-medium text-left text-[#0A2240] focus:outline-none"
+              >
+                {item.question}
+                <span>{activeIndex === index ? '▴' : '▾'}</span>
+              </button>
+              {activeIndex === index && (
+                <p className="pb-4 text-gray-700 text-sm md:text-base">
+                  {item.answer}
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
     </div>
   )
 }

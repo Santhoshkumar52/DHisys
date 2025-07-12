@@ -1,4 +1,7 @@
 import React from 'react'
+//icons
+import { FaLinkedin } from "react-icons/fa";
+
 
 const About = () => {
   return (
@@ -14,35 +17,42 @@ const About = () => {
       </section> */}
 
       {/* Features Section */}
-      <section className="py-16 px-6 grid gap-10 md:grid-cols-3 text-center max-w-7xl mx-auto">
-        {[
-          {
-            title: "Expertise Solution",
-            text: "We specialize in developing robust, scalable AI solutions that integrate seamlessly with your existing data systems and infrastructure, allowing you to transform your business without costly migrations or replacements.",
-            // src:
-          },
-          {
-            title: "From Initial Implementation to Enterprise Scale: A Transformation Solution for Every Stage",
-            text: "We understand that every business has unique AI implementation needs, whether you’re a startup exploring your first AI solution or an established enterprise seeking to enhance your existing data infrastructure with advanced intelligence.",
-            // src:
-          },
-          {
-            title: "AI Transformation",
-            text: "Our initial AI implementation approach focuses on delivering core intelligence capabilities that demonstrate measurable value and gather user feedback, allowing you to refine and expand your AI transformation with confidence and agility.",
-            // src:
-          },
-        ].map((feature, index) => (
-          <div key={index}>
-            <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-            <img
-              src={feature.src}
-              alt="AI"
-              className="w-full h-48 object-cover rounded-md mb-4"
-            />
-            <p>{feature.text}</p>
-          </div>
-        ))}
-      </section>
+      <section className="py-16 px-6 bg-white">
+  <div className="grid gap-8 md:grid-cols-3 max-w-7xl mx-auto">
+    {[
+      {
+        title: "Expertise Solution",
+        text: "We specialize in developing robust, scalable AI solutions that integrate seamlessly with your existing data systems and infrastructure, allowing you to transform your business without costly migrations or replacements.",
+        src: "/assets/Home/section1.jpg"
+      },
+      {
+        title: "From Initial Implementation to Enterprise Scale: A Transformation Solution for Every Stage",
+        text: "We understand that every business has unique AI implementation needs, whether you’re a startup exploring your first AI solution or an established enterprise seeking to enhance your existing data infrastructure with advanced intelligence.",
+        src: "/assets/Home/section1.jpg"
+      },
+      {
+        title: "AI Transformation",
+        text: "Our initial AI implementation approach focuses on delivering core intelligence capabilities that demonstrate measurable value and gather user feedback, allowing you to refine and expand your AI transformation with confidence and agility.",
+        src: "/assets/Home/section1.jpg"
+      },
+    ].map((feature, index) => (
+      <div
+        key={index}
+        className="flex flex-col rounded-lg p-6 text-center h-full"
+      >
+        <h3 className="text-xl font-bold mb-4 min-h-[64px] flex items-center justify-center">
+          {feature.title}
+        </h3>
+        <img
+          src={feature.src}
+          alt="AI"
+          className="w-full h-48 object-cover rounded-md mb-4"
+        />
+        <p className="text-sm text-gray-700">{feature.text}</p>
+      </div>
+    ))}
+  </div>
+</section>
 
       {/* Process Section */}
       <section className="bg-[#0A2240] text-white py-16 px-6 text-center">
@@ -77,31 +87,44 @@ const About = () => {
 
       {/* Team Showcase */}
       <section className="bg-white py-16 px-6 text-center">
-  <h2 className="text-3xl font-bold mb-10">Masters of Our Craft</h2>
-  <div className="grid gap-6 md:grid-cols-2 grid-rows-2 max-w-6xl mx-auto">
-    {[
-      {
-        src: "/assets/Home/section1.jpg", // Woman with coffee mug, brick wall
-        alt: "Team Member 1",
-      },
-      {
-        src: "/assets/Home/section1.jpg", // Woman working on laptop
-        alt: "Team Member 2",
-      },
-      {
-        src: "/assets/Home/section1.jpg", // Woman in red near desk
-        alt: "Team Member 3",
-      },
-    ].map(({ src, alt }, i) => (
+  {/* Title */}
+  <div className='grid grid-col-2'>
+<h2 className="text-3xl font-bold mb-2 text-left max-w-6xl mx-auto">
+    Masters of Our Craft
+  </h2>
+  <p className="text-left text-lg text-gray-600 mb-10 max-w-6xl mx-auto">
+    Dhisys Offers a complete digital transformation experience
+  </p>
+  </div>
+  
+
+  {/* Custom Image Layout */}
+  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+    {/* Left Tall Image */}
+    <div className="md:col-span-2">
       <img
-        key={i}
-        src={src}
-        alt={alt}
-        className="w-full h-[300px] object-cover rounded-md"
+        src="/assets/Home/section1.jpg"
+        alt="Team Member 1"
+        className="w-full h-full object-cover rounded-md max-h-[640px]"
       />
-    ))}
+    </div>
+
+    {/* Right 2 Stacked Images */}
+    <div className="md:col-span-1 grid grid-rows-2 gap-6">
+      <img
+        src="/assets/Home/section1.jpg"
+        alt="Team Member 2"
+        className="w-full h-full object-cover rounded-md max-h-[310px]"
+      />
+      <img
+        src="/assets/Home/section1.jpg"
+        alt="Team Member 3"
+        className="w-full h-full object-cover rounded-md max-h-[310px]"
+      />
+    </div>
   </div>
 </section>
+
 
       {/* Meet the Innovators */}
       <section className="bg-[#0A2240] text-white py-40 px-6 text-center">
@@ -132,7 +155,7 @@ const About = () => {
           className="rounded w-45 h-32 mx-auto mb-4 object-cover"
         />
         <p className="font-semibold">{role}</p>
-        <a href="#" className="text-blue-600 text-sm underline mt-2 inline-block">LinkedIn</a>
+        <a href="#" className="text-2xl underline mt-2 inline-block"><FaLinkedin/></a>
       </div>
     ))}
   </div>

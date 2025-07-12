@@ -1,9 +1,15 @@
 
 import { useTheme } from '../../Context/ThemeContext' 
 import clsx from 'clsx'
+//icons
+import { FaPhoneAlt,FaArrowAltCircleRight   } from "react-icons/fa"; 
+import { IoMdMail } from "react-icons/io";
+
+
 
 const Footer = () => {
   const theme = useTheme()
+  const year=new Date().getFullYear()
 
   return (
     <div className="p-3 text-neutral-50 bg-black">
@@ -19,12 +25,12 @@ const Footer = () => {
           <div>
             <a
               href="#"
-              className={clsx("mt-2 md:mt-0 inline-block bg-white font-semibold px-4 py-2 rounded-full transition hover:bg-gray-100",{
+              className={clsx("mt-2 md:mt-0 inline-block bg-white font-semibold px-4 py-2 rounded-full transition hover:bg-gray-300",{
           "text-[#7D0C1C]": theme === "themeMaroon",
           "text-[#0A2240]": theme === "themeBlue",
         })}
             >
-              Book Free Consultation
+              Book Free Consultation <FaArrowAltCircleRight className='inline'/>
             </a>
           </div>
         </div>
@@ -58,15 +64,21 @@ const Footer = () => {
           <div className="w-full sm:w-[200px] flex flex-col gap-2 text-center sm:text-left">
             <h2 className="text-[22px] mb-2 font-semibold">Contact</h2>
             <p>Rome GA 310601</p>
-            <p>+91 8888888</p>
-            <p>mail@example.com</p>
+            <p><FaPhoneAlt className={clsx('inline',{
+          "text-[#7D0C1C]": theme === "themeMaroon",
+          "text-[#0A2240]": theme === "themeBlue",
+        })}/> +91 12345 67890</p>
+            <p><IoMdMail className={clsx('inline',{
+          "text-[#7D0C1C]": theme === "themeMaroon",
+          "text-[#0A2240]": theme === "themeBlue",
+        })}/> mail@example.com</p>
           </div>
         </div>
 
         <hr className="my-6 border-neutral-700" />
 
         <p className="text-center text-sm mt-4">
-          Copyright © 2025 DHIsys - Intelligent Systems for Intelligent Business
+          Copyright © {year} DHIsys - Intelligent Systems for Intelligent Business
         </p>
       </div>
     </div>
