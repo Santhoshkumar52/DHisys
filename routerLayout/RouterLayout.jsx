@@ -7,6 +7,7 @@ import Navbar from '../components/navbar/Navbar';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 import { ThemeContext } from '../Context/ThemeContext';
+import ScrollToTopButton from '../components/scrollToTopButn/ScrollToTopButton';
 
 const RouterLayout = () => {
   const location = useLocation();
@@ -23,7 +24,7 @@ const RouterLayout = () => {
       <Header />
       <Outlet />
       <Footer />
-      
+      <ScrollToTopButton/>
     </ThemeContext.Provider>
   );
 };

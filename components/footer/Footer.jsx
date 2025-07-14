@@ -4,12 +4,37 @@ import clsx from 'clsx'
 //icons
 import { FaPhoneAlt,FaArrowAltCircleRight   } from "react-icons/fa"; 
 import { IoMdMail } from "react-icons/io";
+import { FaLocationDot } from "react-icons/fa6";
+import { NavLink } from 'react-router-dom';
+
 
 
 
 const Footer = () => {
+  const viewwidth=window.visualViewport.width
   const theme = useTheme()
   const year=new Date().getFullYear()
+  
+  const handleLinkClick = () =>{
+    // alert(visualViewport.width, scrollY)
+const scrollPoints = [
+  { max: 640, top: 643 },
+  { max: 768, top: 643 },
+  { max: 1024, top: 722 },
+  { max: 1280, top: 439 },
+  { max: 1450, top: 500 },
+  { max: Infinity, top: 539 }
+];
+
+const vw = window.visualViewport.width;
+
+for (const point of scrollPoints) {
+  if (vw < point.max) {
+    window.scroll({ top: point.top, left: 0, behavior: "smooth" });
+    break;
+  }
+}
+    }
 
   return (
     <div className="p-3 text-neutral-50 bg-black">
@@ -47,23 +72,26 @@ const Footer = () => {
 
           <div className="w-full sm:w-[200px] flex flex-col gap-2 text-center sm:text-left">
             <h2 className="text-[22px] mb-2 font-semibold">Services</h2>
-            <p>AI Strategy Consulting</p>
-            <p>Custom AI Development</p>
-            <p>Implementation & Integration</p>
-            <p>Training & Support</p>
+            <NavLink to={"/services"} onClick={handleLinkClick}><p>AI Strategy Consulting</p></NavLink>
+            <NavLink to={"/services"} onClick={handleLinkClick}><p>Custom AI Development</p></NavLink>
+            <NavLink to={"/services"} onClick={handleLinkClick}><p>Implementation & Integration</p></NavLink>
+            <NavLink to={"/services"} onClick={handleLinkClick}><p>Training & Support</p></NavLink>
           </div>
 
           <div className="w-full sm:w-[200px] flex flex-col gap-2 text-center sm:text-left">
             <h2 className="text-[22px] mb-2 font-semibold">Company</h2>
-            <p>About Us</p>
-            <p>Careers</p>
-            <p>Blog</p>
-            <p>Press</p>
+            <NavLink to={"/about"} onClick={handleLinkClick}><p>About Us</p></NavLink>
+            <NavLink to={"/about"} onClick={handleLinkClick}><p>Careers</p></NavLink>
+            <NavLink to={"/about"} onClick={handleLinkClick}><p>Blog</p></NavLink>
+            <NavLink to={"/about"} onClick={handleLinkClick}><p>Press</p></NavLink>            
           </div>
 
           <div className="w-full sm:w-[200px] flex flex-col gap-2 text-center sm:text-left">
             <h2 className="text-[22px] mb-2 font-semibold">Contact</h2>
-            <p>Rome GA 310601</p>
+            <p><FaLocationDot className={clsx('inline',{
+          "text-[#7D0C1C]": theme === "themeMaroon",
+          "text-[#0A2240]": theme === "themeBlue",
+        })}/> Rome GA 310601</p>
             <p><FaPhoneAlt className={clsx('inline',{
           "text-[#7D0C1C]": theme === "themeMaroon",
           "text-[#0A2240]": theme === "themeBlue",

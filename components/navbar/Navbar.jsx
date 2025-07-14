@@ -9,7 +9,16 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
-  const handleLinkClick = () => setMenuOpen(false);
+  const handleLinkClick = () =>{
+     setMenuOpen(false)
+    //  alert()
+     if(window.scrollY>=200){
+    window.scroll({
+      top:0,
+      left:0,
+      behavior:"smooth"
+    })}
+    }
 
   return (
     <>
@@ -24,7 +33,8 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex justify-between flex-wrap">
         {/* <div className="flex items-center space-x-2"> */}
-          <img src="../../assets/Common/Dhisys_logo.png" alt="Logo" className="h-10 " />
+                    <NavLink to="/" onClick={handleLinkClick}><img src="../../assets/Common/Dhisys_logo.png" alt="Logo" className="md:w-30 w-10" /></NavLink>
+          
           {/* <span className="text-white font-semibold text-lg">DH-AI Systems</span> */}
         {/* </div> */}
 
@@ -44,7 +54,7 @@ const Navbar = () => {
             }
           )}
         >
-          <div className="flex flex-col md:flex-row w-full md:w-auto mt-4 md:mt-0 md:text-end text-center">
+          <div className="flex flex-col md:flex-row w-full md:w-auto mt-4 md:mt-0 md:text-end text-center md:text-[1.5rem]">
             <NavLink to="/" onClick={handleLinkClick} className="block text-white font-medium px-3 py-1 hover:underline">Home</NavLink>
             <NavLink to="/about" onClick={handleLinkClick} className="block text-white font-medium px-3 py-1 hover:underline">About</NavLink>
             <NavLink to="/services" onClick={handleLinkClick} className="block text-white font-medium px-3 py-1 hover:underline">Services</NavLink>
