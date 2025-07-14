@@ -19,6 +19,8 @@ const Navbar = () => {
       behavior:"smooth"
     })}
     }
+ const activeNavLink = ({ isActive }) =>
+  `block transition-all duration-500 ease-in-out text-white font-medium px-3 py-1 hover:underline ${isActive ? 'underline' : ''}`;
 
   return (
     <>
@@ -55,10 +57,10 @@ const Navbar = () => {
           )}
         >
           <div className="flex flex-col md:flex-row w-full md:w-auto mt-4 md:mt-0 md:text-end text-center md:text-[1.5rem]">
-            <NavLink to="/" onClick={handleLinkClick} className="block text-white font-medium px-3 py-1 hover:underline">Home</NavLink>
-            <NavLink to="/about" onClick={handleLinkClick} className="block text-white font-medium px-3 py-1 hover:underline">About</NavLink>
-            <NavLink to="/services" onClick={handleLinkClick} className="block text-white font-medium px-3 py-1 hover:underline">Services</NavLink>
-            <NavLink to="/contact" onClick={handleLinkClick} className="block text-white font-medium px-3 py-1 hover:underline">Contact</NavLink>
+            <NavLink to="/" onClick={handleLinkClick} className={activeNavLink}>Home</NavLink>
+            <NavLink to="/about" onClick={handleLinkClick} className={activeNavLink}>About</NavLink>
+            <NavLink to="/services" onClick={handleLinkClick} className={activeNavLink}>Services</NavLink>
+            <NavLink to="/contact" onClick={handleLinkClick} className={activeNavLink}>Contact</NavLink>
             <NavLink
               to="/start"
               onClick={handleLinkClick}
